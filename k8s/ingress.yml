@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kutt-ingress
+  namespace: url-shortener
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: 52.73.147.249.nip.io   # update to current nip.io hostname
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kutt
+                port:
+                  number: 3000

@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kutt
+  namespace: url-shortener
+spec:
+  selector:
+    app: kutt
+  ports:
+    - port: 3000
+      targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kutt
+  namespace: url-shortener
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kutt
+  template:
+    metadata:
+      labels:
+        app: kutt
+    spec:
+      containers:
+        - name: kutt
+          image: emilakes/url-shortener-kutt:manual-v1
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: kutt-config
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kutt-secrets
+                  key: DB_PASSWORD
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: kutt-secrets
+                  key: DB_USER
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: kutt-secrets
+                  key: JWT_SECRET
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: kutt-secrets
+                  key: POSTGRES_DB
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 20
