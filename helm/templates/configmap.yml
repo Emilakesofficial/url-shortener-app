@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kutt-config
+  namespace: {{ .Release.Namespace }}
+data:
+  PORT: "{{ .Values.kutt.port }}"
+  DEFAULT_DOMAIN: "{{ .Values.config.defaultDomain }}"
+  DB_CLIENT: "pg"
+  DB_HOST: "postgres"
+  DB_PORT: "5432"
+  DB_SSL: "false"
+  REDIS_ENABLED: "true"
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+  ADMIN_EMAIL: "{{ .Values.config.adminEmail }}"
+  DISALLOW_REGISTRATION: "{{ .Values.config.disallowRegistration }}"
+  TRUST_PROXY: "{{ .Values.config.trustProxy }}"

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: kutt
+description: A Helm chart for deploying Kutt URL shortener With Postgres and Redis
+type: application
+version: 0.1.0
+appVersion: "manual-v1"
