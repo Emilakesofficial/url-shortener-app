@@ -1,0 +1,15 @@
+kutt:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+
+ingress:
+  host: dev.example.nip.io
+
+config:
+  defaultDomain: dev.example.nip.io

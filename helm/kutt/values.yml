@@ -1,0 +1,49 @@
+image:
+  respository: emilakes/url-shortener-kutt
+  tag: manual-v1
+  pullPolicy: IfNotPresent
+
+secretName: kutt-secrets
+
+kutt:
+  replicaCount: 1
+  port: 3000
+  resource:
+    requests:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 200m
+        memory: 256Mi
+
+postgres:
+  image: postgres:17
+  storage: 5Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+redis:
+  image: redis:alpine
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+    cpu: 100m
+    memory: 128Mi
+
+ingress:
+  className: traefik
+  host: 52.207.225.45.nip.io
+
+config:
+  defaultDomain: 52.207.225.45.nip.io
+  disallowedRegistration: "true"
+  trustProxy: "true"
+  adminEmail: ""
