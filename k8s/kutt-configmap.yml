@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kutt-config
+  namespace: url-shortener
+data:
+  PORT: "3000"
+  DEFAULT_DOMAIN: "52.73.147.249.nip.io"  # updated to current nip.io hostname
+  DB_CLIENT: "pg"
+  DB_HOST: "postgres"
+  DB_PORT: "5432"
+  DB_SSL: "false"
+  REDIS_ENABLED: "true"
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+  ADMIN_EMAIL: ""
+  DISABLE_REGISTRATION: "true"
+  TRUST_PROXY: "true"
