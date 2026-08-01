@@ -26,14 +26,14 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: Dockerfile
+          file: ./Dockerfile
           push: true
           tags: emilakes/url-shortener-kutt:${{ steps.vars.outputs.sha_short }}
 
       - name: Checkout GitOps repo
         uses: actions/checkout@v4
         with:
-          repository: emilakes/url-shortener-gitops
+          repository: emilakesofficial/url-shortener-gitops
           token: ${{ secrets.GITOPS_REPOS_TOKEN }}
           path: gitops
 
