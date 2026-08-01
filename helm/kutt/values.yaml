@@ -1,5 +1,5 @@
 image:
-  respository: emilakes/url-shortener-kutt
+  repository: emilakes/url-shortener-kutt
   tag: manual-v1
   pullPolicy: IfNotPresent
 
@@ -8,14 +8,13 @@ secretName: kutt-secrets
 kutt:
   replicaCount: 1
   port: 3000
-  resource:
+  resources:
     requests:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 200m
-        memory: 256Mi
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
 
 postgres:
   image: postgres:17
@@ -35,8 +34,8 @@ redis:
       cpu: 50m
       memory: 64Mi
     limits:
-    cpu: 100m
-    memory: 128Mi
+      cpu: 100m
+      memory: 128Mi
 
 ingress:
   className: traefik
@@ -44,6 +43,6 @@ ingress:
 
 config:
   defaultDomain: 52.207.225.45.nip.io
-  disallowedRegistration: "true"
+  disallowRegistration: "true"
   trustProxy: "true"
-  adminEmail: ""
+  adminEmail: "admin@gmail.com"

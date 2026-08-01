@@ -13,4 +13,4 @@ ingress:
 
 config:
   defaultDomain: 52.207.225.45.nip.io
-  dissallowRegistration: "true"
+  disallowRegistration: "true"
