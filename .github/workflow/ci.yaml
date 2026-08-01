@@ -1,17 +1,9 @@
 name: CI Build and Push
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-    paths:
-      - "Dockerfile"
-      - "server/**"
-      - "static/**"
-      - "custom/**"
-      - "package.json"
-      - "package-lock.json"
-      - "knexfile.js"
 
 jobs:
   build:
