@@ -33,7 +33,7 @@ jobs:
       - name: Checkout GitOps repo
         uses: actions/checkout@v4
         with:
-          repository: emilakes/url-shortener-gitops
+          repository: emilakesofficial/url-shortener-gitops
           token: ${{ secrets.GITOPS_REPOS_TOKEN }}
           path: gitops
 
