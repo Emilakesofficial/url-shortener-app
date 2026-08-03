@@ -9,8 +9,8 @@ kutt:
       memory: 300Mi
 
 ingress:
-  host: 52.207.225.45.nip.io
+  host: 54.145.12.6.nip.io
 
 config:
-  defaultDomain: 52.207.225.45.nip.io
+  defaultDomain: 54.145.12.6.nip.io
   disallowRegistration: "true"
