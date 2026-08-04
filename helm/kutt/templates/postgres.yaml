@@ -56,12 +56,12 @@ spec:
             {{- toYaml .Values.postgres.resources | nindent 12 }}
           readinessProbe:
             exec:
-              command: ["pg_isready", "-U", "kutt_user"]
+              command: ["pg_isready", "-U", "kutt_user", "-d", "kutt"]
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             exec:
-              command: ["pg_isready", "-U", "kutt_user"]
+              command: ["pg_isready", "-U", "kutt_user", "-d", "kutt"]
             initialDelaySeconds: 15
             periodSeconds: 20
   volumeClaimTemplates:
