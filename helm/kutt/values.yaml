@@ -39,10 +39,10 @@ redis:
 
 ingress:
   className: traefik
-  host: 52.207.225.45.nip.io
+  host: 54.198.204.128.nip.io
 
 config:
-  defaultDomain: 52.207.225.45.nip.io
+  defaultDomain: 54.198.204.128.nip.io
   disallowRegistration: "true"
   trustProxy: "true"
   adminEmail: "admin@gmail.com"
