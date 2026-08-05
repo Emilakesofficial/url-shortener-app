@@ -39,4 +39,4 @@ spec:
           livenessProbe:
             exec:
               command: ["redis-cli", "ping"]
-            initialDelaySeconds: 15
+            initialDelaySeconds: 15  

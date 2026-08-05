@@ -46,4 +46,4 @@ config:
   defaultDomain: 54.198.204.128.nip.io
   disallowRegistration: "true"
   trustProxy: "true"
-  adminEmail: "admin@gmail.com"
+  adminEmail: "admin@gmail.com" 
