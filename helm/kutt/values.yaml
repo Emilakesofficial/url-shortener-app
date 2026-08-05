@@ -29,6 +29,7 @@ postgres:
 
 redis:
   image: redis:alpine
+  replicaCount: 1
   resources:
     requests:
       cpu: 50m
@@ -45,4 +46,4 @@ config:
   defaultDomain: 54.198.204.128.nip.io
   disallowRegistration: "true"
   trustProxy: "true"
-  adminEmail: "admin@gmail.com"
+  adminEmail: "admin@gmail.com" 
