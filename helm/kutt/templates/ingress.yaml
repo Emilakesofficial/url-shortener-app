@@ -3,8 +3,14 @@ kind: Ingress
 metadata:
   name: kutt-ingress
   namespace: {{ .Release.Namespace }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: {{ .Values.ingress.className }}
+  tls:
+    - hosts:
+        - {{ .Values.ingress.host }}
+      secretName: kutt-tls
   rules:
     - host: {{ .Values.ingress.host }}
       http:
